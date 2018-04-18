@@ -14,4 +14,14 @@ Router.get('/cards', (req, res) => {
   })
 })
 
+Router.get('/cards/:cardID', (req, res) => {
+  User.findAll({
+    where: {
+      id: req.params.cardID
+    }
+  }).then((cards) => {
+    res.json(cards)
+  })
+})
+
 module.exports = Router;
