@@ -35,7 +35,7 @@ Router.post('/users/:discordID/roll', (req, res) => {
   })
 })
 
-Router.post('/users/:discordID/bonus', (req, res) => {
+Router.post('/users/:discordID/collect', (req, res) => {
   User.findOne({
     where: {
       discordID: req.params.discordID
