@@ -21,8 +21,8 @@ Router.get('/users/:discordID', (req, res) => {
     where: {
       discordID: req.params.discordID
     }
-  }).then((users) => {
-    res.json(users)
+  }).then((user) => {
+    res.json(user)
   })
 })
 

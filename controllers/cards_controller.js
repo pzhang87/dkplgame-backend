@@ -15,7 +15,7 @@ Router.get('/cards', (req, res) => {
 })
 
 Router.get('/cards/:cardID', (req, res) => {
-  User.findAll({
+  Card.findAll({
     where: {
       id: req.params.cardID
     }
