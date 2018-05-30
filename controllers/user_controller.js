@@ -26,6 +26,8 @@ Router.post('/users/:discordID/roll', (req, res) => {
       discordID: req.params.discordID
     }
   }).then(user => {
+    // should we not create a instance method on the model instead?
+
     // write a function that
     // 1. spends resources, if available
     // 2a. determines what card you got and inserts it as a relationship in the UserCards
@@ -35,15 +37,23 @@ Router.post('/users/:discordID/roll', (req, res) => {
   })
 })
 
-Router.post('/users/:discordID/collect', (req, res) => {
+// generic handler for whenever someone tries to update a user's properties
+Router.put('/users/:discordID', (req, res)=> {
+  var { method } = req.query
   User.findOne({
     where: {
       discordID: req.params.discordID
     }
-  }).then(user => {
-    return user.increment('rocks', {by: 1})
+  }).then((user) => {
+    try {
+      user[method]();
+    }
+    catch(error) {
+      // log the error, but still send a response
+      console.log(error);
+      return user;
+    }
   }).then(result => {
-    console.log(result);
     res.json(result);
   })
 })
