@@ -27,14 +27,11 @@ Router.get('/users/:discordID', (req, res) => {
 })
 
 // add user
-Router.post('/users', (req, res) => {
-  User
-  .findOrCreate({
+Router.put('/users', (req, res) => {
+  let { discordID } = req.query;
+  User.findOrCreate({
     where: {
-      discordID: req.query.discordID
-    },
-    defaults: {
-      rocks: 0
+      discordID: discordID
     }
   }).spread((user, created) => {
     res.json(user.get({
