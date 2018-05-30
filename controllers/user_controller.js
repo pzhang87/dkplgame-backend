@@ -20,23 +20,6 @@ Router.get('/profile', (req, res) => {
   })
 })
 
-Router.post('/users/:discordID/roll', (req, res) => {
-  User.findOne({
-    where: {
-      discordID: req.params.discordID
-    }
-  }).then(user => {
-    // should we not create a instance method on the model instead?
-
-    // write a function that
-    // 1. spends resources, if available
-    // 2a. determines what card you got and inserts it as a relationship in the UserCards
-    // 2b. or tells you that you don't have enough rocks
-  }).then(result => {
-    res.json(result);
-  })
-})
-
 // generic handler for whenever someone tries to update a user's properties
 Router.put('/users/:discordID', (req, res)=> {
   var { method } = req.query
