@@ -29,10 +29,23 @@ module.exports = function(orm, { INTEGER, STRING, BOOLEAN, ...Sequelize}){
     this.update({dailyLogin: false});
   }
 
-  User.prototype.roll = function(){
-    if (this.rocks >= 1){
-      this.decrement({rocks: 1})
-      // write a roll function here
+  User.prototype.roll = function(args){
+    // wrap all of this shit in try/catch block at the end pls
+    let { banner, rolls } = args
+    if (this.rocks >= rolls){
+      // generate an array of rolls
+      // ES6 implementation
+      let pulls = Array.from({length: rolls}, ()=> Math.floor(Math.random() * Math.floor(100)))
+
+      // have something parse this array into odds: for each element in array, decide
+      // on whether or not it is N/R/SR/SSR based on the bannerOdds
+      // this will necessitate a banner(global)Odds table
+
+      // then, determine the identity of each card, via each individual card's odds
+      //
+
+      // then, pay the cost
+      this.decrement({rocks: rolls})
     } else {
       return null;
     }

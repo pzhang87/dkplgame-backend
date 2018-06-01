@@ -1,3 +1,5 @@
 node_modules
 
 ecosystem.json
+
+config/config.json
