@@ -12,10 +12,10 @@ module.exports = {
         type: Sequelize.STRING
       },
       startTime: {
-        type: Sequelize.TIMESTAMP
+        type: Sequelize.DATE
       },
       endTime: {
-        type: Sequelize.TIMESTAMP
+        type: Sequelize.DATE
       },
       createdAt: {
         allowNull: false,
