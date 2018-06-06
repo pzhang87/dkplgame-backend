@@ -1,3 +1,4 @@
+'use strict';
 module.exports = function(orm, { INTEGER, STRING, BOOLEAN, ...Sequelize}){
   const User = orm.define('user', {
     discordID: {
@@ -14,7 +15,7 @@ module.exports = function(orm, { INTEGER, STRING, BOOLEAN, ...Sequelize}){
       type: BOOLEAN,
       defaultValue: false
     }
-  })
+  }, {})
 
   User.prototype.collect = function(){
     if (this.dailyLogin === false){
@@ -34,7 +35,7 @@ module.exports = function(orm, { INTEGER, STRING, BOOLEAN, ...Sequelize}){
     let { banner, rolls } = args
     if (this.rocks >= rolls){
       // generate an array of rolls
-      // ES6 implementation
+      // ES6 implementation. isn't this cool?
       let pulls = Array.from({length: rolls}, ()=> Math.floor(Math.random() * Math.floor(100)))
 
       // have something parse this array into odds: for each element in array, decide
@@ -42,9 +43,9 @@ module.exports = function(orm, { INTEGER, STRING, BOOLEAN, ...Sequelize}){
       // this will necessitate a banner(global)Odds table
 
       // then, determine the identity of each card, via each individual card's odds
-      //
+      // as determined on bannerCardsOdds
 
-      // then, pay the cost
+      // then, pay the cost and insert the cards as they belong to the user
       this.decrement({rocks: rolls})
     } else {
       return null;

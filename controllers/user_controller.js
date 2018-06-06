@@ -22,14 +22,14 @@ Router.get('/profile', (req, res) => {
 
 // generic handler for whenever someone tries to update a user's properties
 Router.put('/users/:discordID', (req, res)=> {
-  var { method } = req.query
+  var { method, ...args } = req.query
   User.findOne({
     where: {
       discordID: req.params.discordID
     }
   }).then((user) => {
     try {
-      user[method]();
+      user[method](args);
     }
     catch(error) {
       // log the error, but still send a response
@@ -40,5 +40,7 @@ Router.put('/users/:discordID', (req, res)=> {
     res.json(result);
   })
 })
+
+Router.put('/users/:discordID')
 
 module.exports = Router;

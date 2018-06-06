@@ -1,12 +1,14 @@
 'use strict';
-module.exports = (sequelize, DataTypes) => {
-  var Banner = sequelize.define('Banner', {
+module.exports = (Sequelize, DataTypes) => {
+  var Banner = Sequelize.define('Banner', {
     name: DataTypes.STRING,
     startTime: DataTypes.TIMESTAMP,
     endTime: DataTypes.TIMESTAMP
   }, {});
   Banner.associate = function(models) {
-    // associations can be defined here
+    models.Banner.belongsToMany(models.Card, {
+      through: "banner_cards"
+    })
   };
   return Banner;
 };
