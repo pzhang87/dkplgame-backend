@@ -16,3 +16,9 @@ what is the basic absolute minimum for this to work?
 
 cards->belong to many->banners, and each have associated odds
 banners<-have many<-cards via BannerCards
+
+--
+
+TODO: remember to fix your caps/noncaps fucking bullshit because that's gonna screw you later
+
+...getting the feeling that the orm/database and the api should be two different designs...

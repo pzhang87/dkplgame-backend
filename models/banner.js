@@ -7,7 +7,9 @@ module.exports = (Sequelize, DataTypes) => {
   }, {});
   Banner.associate = function(models) {
     models.Banner.belongsToMany(models.Card, {
-      through: "banner_cards"
+      through: "banner_cards",
+      foreignKey: "cardId",
+      otherKey: "bannerId"
     })
   };
   return Banner;

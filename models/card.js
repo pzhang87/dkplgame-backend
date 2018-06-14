@@ -18,6 +18,8 @@ module.exports = (sequelize, DataTypes) => {
 
     models.Card.belongsToMany(models.Banner, {
       through: "banner_cards",
+      foreignKey: "BannerId",
+      otherKey: "cardId"
     })
   }
   return Card;
