@@ -1,0 +1,25 @@
+{
+  "banners": [
+    {
+      "name": "TLSOKU TEST BANNER",
+      "odds": {
+        "N": 60,
+        "R": 24,
+        "SR": 12,
+        "SSR": 4
+      },
+      "specials": {
+        "N": [
+          {
+            "person": "DKPL",
+            "rate": 3
+          },
+          {
+            "person": "JSH",
+            "rate": 3
+          }
+        ]
+      }
+    }
+  ]
+}
