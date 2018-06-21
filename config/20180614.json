@@ -12,11 +12,11 @@
         "N": [
           {
             "person": "DKPL",
-            "rate": 3
+            "rate_up": 3
           },
           {
             "person": "JSH",
-            "rate": 3
+            "rate_up": 3
           }
         ]
       }
